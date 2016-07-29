@@ -7,7 +7,7 @@ error_reporting (E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
                 exit;
                 }
 
-        $banco=mysql_select_db("sgp");
+        $banco=mysql_select_db("gestaopatrimonial");
 
         if(!$banco){
         echo "O Banco de dados não foi encontrado";
