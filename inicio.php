@@ -15,31 +15,23 @@ require 'controle/controle.php';?>
 </head>
 
 <body>
-<div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span12">
-          <div class="navbar">
-            <div class="navbar-inner">
-              <div class="container-fluid">
-                
-                
-                <a href="inicio.php" class="brand">Sistema patrimonial</a>
-                <div class="nav-collapse collapse navbar-responsive-collapse">
-                  <ul class="nav pull-right">
-                    <li class="dropdown"><a><i class="icon-user"></i> <?php echo $_SESSION['usuario']['usuario']?></a></li>
-                    <li class="divider-vertical"></li>
-                    <li><a href="correios">Sistema de correios</a></li>
-                    <li class="divider-vertical"></li>
-                    <li><a href="controle/logout.php">Logout</a></li>
-                  </ul>
-                </div>
-                <a class="btn btn-primary" href="novo.php">Cadastrar novo</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <a class="navbar-brand" href="#">Gestão Patrimonial</a>
     </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				  <p class="navbar-text navbar-right">Logado como  <?php echo $_SESSION['usuario']['usuario']?>  /  <a class="btn btn-primary btn-xs" href="controle/logout.php">Logout</a></p>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
       <div class="container">
 	<h1>Itens cadastrados</h1>
 					<?php
@@ -106,19 +98,20 @@ require 'controle/controle.php';?>
 		echo "<div class='span6'>
 			<form class='form-horizontal'>
 				<div class='row-fluid' style='margin-top: 10px'>
-					<div class='input-prepend input-append'>
-					  <span class='add-on' >Mostrando </span>
-					  <input class='span2' type='text' name='quantidade' id='quantidade' value=".$quantidade." maxlength='3' style='width: 40px' onKeyUp='formato_int(this)' maxlenght='3' >
-					  <span class='add-on' > resultados</span>
-					  
+					<div class='form-group row-fluid' style='margin-top: 10px; width: 100px;'>
+					<div class='input-group'>
+					  <div class='input-group-addon'>Mostrando</div>
+					  <input class='span2 form-control' type='text' name='quantidade' id='quantidade' value=".$quantidade." maxlength='3' style='width: 40px' onKeyUp='formato_int(this)' maxlenght='3' >
+					  <div class='input-group-addon'>resultados</div>
 					</div>
+				  </div>
 				</div>
-				<div class='row-fluid' style='margin-top: 10px'>
-					<div class='input-prepend input-append'>
-					  <span class='add-on' >Contendo: </span>
-					  <input class='span2' type='text' name='pesquisa' id='pesquisa' value='".$pesquisa."' style='width: 250px' onKeyUp='formato_letras_numeros(this)' >
-					  <button class='btn' type='submit' >Pesquisar</button>
-					</div>
+				<div class='form-group'>
+				<div class='input-group'>
+				  <div class='input-group-addon'>Contendo:</div>
+				  <input class='form-control' type='text' name='pesquisa' id='pesquisa' value='".$pesquisa."' style='width: 250px' onKeyUp='formato_letras_numeros(this)' >
+				  <button class='btn btn-primary' type='submit' >Pesquisar</button>
+				</div>
 				</div>
 				<input type='hidden' name='coluna' value='".$coluna."'/>
 				<input type='hidden' name='ordem' value='".$ordem1."'/>
@@ -131,7 +124,7 @@ require 'controle/controle.php';?>
                     <span>Instalado: <span class="badge badge-warning">&nbsp;</span></span>&nbsp;&nbsp;&nbsp;
                     <span>Em uso: <span class="badge badge-important">&nbsp;</span></span>&nbsp;&nbsp;&nbsp;
                     <span>Indefinido: <span class="badge badge-info">&nbsp;</span></span>&nbsp;&nbsp;&nbsp;
-                    <span>Manutenção: <span class="badge">&nbsp;</span></span><br /><br />
+                    <span>Manutenção: <span class="badge badge-stand">&nbsp;</span></span><br /><br />
                  </div>
                  </div>';
 				 
@@ -187,11 +180,11 @@ require 'controle/controle.php';?>
 							<td>".$estado."</td>
 							<td>".$nf."</td>
 							<td>".$data_compra."</td>
-							<td style='width: 50px'>
-								<div class='btn-group'>
-								  <a class='btn btn-small' data-toggle='modal' href='#item".$item_pk."'><i class='icon-search'></i></a>
-								  <a class='btn btn-small' href='edita.php?item_pk=".$item_pk."'><i class='icon-wrench'></i></a>
-								  <a class='btn btn-small' onclick=\"confirmaExclusao($item_pk, '$nome')\" ><i class='icon-trash'></i></a>
+							<td style='width: 90px'>
+								<div class='btn-group btn-group-xs' role='group' aria-label='...'>
+								  <a class='btn btn-default' href='#item".$item_pk."'><span class='glyphicon glyphicon-zoom-in' aria-hidden='true'></span></a>
+								  <a class='btn btn-default' href='edita.php?item_pk=".$item_pk."'><span class='glyphicon glyphicon-wrench' aria-hidden='true'></span></a>
+								  <a class='btn btn-default' onclick=\"confirmaExclusao($item_pk, '$nome')\"><span class='glyphicon glyphicon-erase' aria-hidden='true'></span></a>
 								</div>
 							</td>
 						   </tr>";
@@ -257,12 +250,12 @@ require 'controle/controle.php';?>
 		}
 		echo "</tbody></table>";
 		
-		echo "<div class='pagination pagination-centered'>
+		echo "<div class='btn-group btn-group-xs' role='group' aria-label='...'>
 				  <ul>";
 		for ($i=0; $i<$qtd_paginas; $i++) { 
 			$class="";
 			if(($i+1) == $pagina){$class="active";}
-			echo "<li class='".$class."'><a href='inicio.php?coluna=".$coluna."&ordem=".$ordem1."&pesquisa=".$pesquisa."&inicio=".($i*$quantidade)."&quantidade=".$quantidade."&pagina=".($i+1)."'>".($i+1)."</a></li>";
+			echo "<li class='btn btn-default ".$class."'><a href='inicio.php?coluna=".$coluna."&ordem=".$ordem1."&pesquisa=".$pesquisa."&inicio=".($i*$quantidade)."&quantidade=".$quantidade."&pagina=".($i+1)."'>".($i+1)."</a></li>";
 		};
 		echo "</ul>
 				</div>";

@@ -10,23 +10,25 @@
 
 <body cz-shortcut-listen="true">
 
-    <div class="container well" style="width:280px; margin-top:150px; padding:30px;">
+    <div class="container well" style="width:350px; margin-top:150px; padding:30px;">
 
       <form class="form-signin text-center" action="controle/login.php" method="post">
-        <h3 class="form-signin-heading text-center">ÁREA RESTRITA</h3>
+        <h3 class="form-signin-heading text-center">GESTÃO PATRIMONIAL</h3>
+		<br>
         			<div class='row-fluid '>
                         <div class='input-prepend'>
                           <span class='add-on' ><i class="icon-user"></i> </span>
-                          <input type='text' name='login' id='login' required>
+                          <input type='text'  class="form-control"  name='login' id='login' placeholder='login' required>
                         </div>
                     </div>
                     
                     <div class='row-fluid'>
                         <div class='input-prepend'>
                           <span class='add-on' ><i class="icon-lock"></i> </span>
-                          <input type='password' name='senha' id='senha' required>
+                          <input type='password'  class="form-control" name='senha' id='senha' placeholder='senha' required>
                         </div>
                     </div>
+					<br>
             <button class="btn btn-primary" type="submit">Entrar</button>
             <button class="btn" type="reset">Limpar</button>
       </form>
