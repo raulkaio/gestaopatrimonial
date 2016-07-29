@@ -3,26 +3,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Gestão Patrimonial</title>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <link href="/gestaopatrimonial/css/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="/gestaopatrimonial/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	<link href="/gestaopatrimonial/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link href="/gestaopatrimonial/css/style.css" rel="stylesheet">
-    <script type="/gestaopatrimonial/text/javascript" src="js/validacao.js"></script>
-    <script type="/gestaopatrimonial/text/javascript" src="js/funcoes.js"></script>
+    <script type="text/javascript" src="/gestaopatrimonial/js/validacao.js"></script>
+    <script type="text/javascript" src="/gestaopatrimonial/js/funcoes.js"></script>
+	<link rel="icon" type="image/png" href="/gestaopatrimonial/img/favicon.png">
 </head>
 <body>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<link href="/gestaopatrimonial/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <nav class="navbar navbar-default" style="top:0px !important;">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-      </button>
-      <a class="navbar-brand" href="/gestaopatrimonial/inicio.php">Gestão Patrimonial</a>
+      <a class="navbar-brand" href="/gestaopatrimonial/inicio.php">
+	  <!--<img alt="Brand" src="/gestaopatrimonial/img/favicon.png" width="20" height="20">-->
+	  <strong>Gestão Patrimonial</strong>
+	  </a>
     </div>
 	<ul class="nav navbar-nav">
         <li class="active"><a href="novo.php">Cadastrar item <span class="sr-only">(current)</span></a></li>

@@ -8,10 +8,10 @@ $query = mysql_query("update item set visibilidade=0 where item_pk=$item_pk");
 
 
     if (!$query) {
-        header("location: ../inicio.php?item_pk=$item_pk&msg=Erro na exclusão do item.&class=alert alert-error&type=Erro!");
+        header("location: ../inicio.php?item_pk=$item_pk&titulo=Ops! Houve algum problema...&mensagem=Ocorreu algum erro na exclusão do item.&class=alert alert-danger");
     }
     
     else{
-        header("location: ../inicio.php?item_pk=$item_pk&msg=Item excluído!&class=alert alert-success&type=");
+        header("location: ../inicio.php?item_pk=$item_pk&titulo=Tudo certo.&mensagem=Item excluído do banco de dados.&class=alert alert-success");
     }
 ?>

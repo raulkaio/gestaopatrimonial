@@ -22,16 +22,14 @@ $disponibilidade_fk = (int)$_GET['disponibilidade'];
 $descricao = utf8_decode($_GET['descricao']);
 $nome = utf8_decode($_GET['nome']);
 
-$query = mysql_query("update item set nome='$nome', descricao='$descricao', nf='$nf', localizacao_fk=$localizacao_fk, disponibilidade_fk=$disponibilidade_fk, 
-        usuario_fk=$usuario_fk, numero_serie='$numero_serie', localidade='$localidade', responsavel='$responsavel', data_compra='$data_compra', valor=$valor, 
-            fornecedor='$fornecedor', categoria_fk=$categoria where item_pk=$item_pk");
+$query = mysql_query("update item set disponibilidade_fk=$disponibilidade_fk, nome='$nome', categoria_fk=$categoria, responsavel='$responsavel', localizacao_fk=$localizacao_fk where item_pk=$item_pk");
 
 
     if (!$query) {
-        header("location: ../inicio.php?item_pk=$item_pk&msg=Erro na inserção dos dados.&class=alert alert-error&type=Erro!");
+        header("location: ../inicio.php?item_pk=$item_pk&titulo=Não foi possível concluir o cadastro.&mensagem=Ocorreu algum erro na edição dos dados no banco.&class=alert-danger");
     }
     
     else{
-        header("location: ../inicio.php?item_pk=$item_pk&msg=Item inserido com sucesso!&class=alert alert-success&type=Tudo certo.");
+        header("location: ../inicio.php?item_pk=$item_pk&titulo=Tudo certo.&mensagem=Item atualizado com sucesso!&class=alert-success");
     }
 ?>

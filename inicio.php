@@ -23,7 +23,7 @@ include 'header.php';
 
 		if(empty($_GET['coluna'])){
 			$coluna = "item_pk";
-			$mensagem = "Ordenando por ID";
+			$mensagem = "Ordenando pelo número do patrimônio";
 			}
 		else{
 			$coluna = $_GET['coluna'];
@@ -74,7 +74,7 @@ include 'header.php';
 					<div class='form-group row-fluid' style='margin-top: 10px; width: 100px;'>
 					<div class='input-group'>
 					  <div class='input-group-addon'>Mostrando</div>
-					  <input class='span2 form-control' type='text' name='quantidade' id='quantidade' value=".$quantidade." maxlength='3' style='width: 40px' onKeyUp='formato_int(this)' maxlenght='3' >
+					  <input class='span2 form-control' type='text' name='quantidade' id='quantidade' value=".$quantidade." maxlength='3' style='width: 50px' onKeyUp='formato_int(this)' maxlenght='3' >
 					  <div class='input-group-addon'>resultados</div>
 					</div>
 				  </div>
@@ -91,13 +91,15 @@ include 'header.php';
 			  </form>
 			  </div>";
 
-		echo '<div class="span6">
+		echo '<div >
+					<small>
                     <span>Legenda de disponibilidade:</span><br />
                     <span>Disponíveis: <span class="badge badge-success">&nbsp;</span></span>&nbsp;&nbsp;&nbsp;
                     <span>Instalado: <span class="badge badge-warning">&nbsp;</span></span>&nbsp;&nbsp;&nbsp;
                     <span>Em uso: <span class="badge badge-important">&nbsp;</span></span>&nbsp;&nbsp;&nbsp;
-                    <span>Indefinido: <span class="badge badge-info">&nbsp;</span></span>&nbsp;&nbsp;&nbsp;
-                    <span>Manutenção: <span class="badge badge-stand">&nbsp;</span></span><br /><br />
+                    <span>Em manutenção: <span class="badge badge-stand">&nbsp;</span></span>&nbsp;&nbsp;&nbsp;
+                    <span>Indefinido: <span class="badge badge-info">&nbsp;</span></span><br /><br />
+					</small>
                  </div>
                  </div>';
 
@@ -163,7 +165,7 @@ include 'header.php';
 		}
 		echo "</tbody></table>";
 
-		echo "<div class='btn-group btn-group-xs' role='group' aria-label='...'>
+		echo "<center><div class='btn-group btn-group-xs' role='group' aria-label='...'>
 				  <ul>";
 		for ($i=0; $i<$qtd_paginas; $i++) {
 			$class="";
@@ -171,7 +173,8 @@ include 'header.php';
 			echo "<li class='btn btn-default ".$class."'><a href='inicio.php?coluna=".$coluna."&ordem=".$ordem1."&pesquisa=".$pesquisa."&inicio=".($i*$quantidade)."&quantidade=".$quantidade."&pagina=".($i+1)."'>".($i+1)."</a></li>";
 		};
 		echo "</ul>
-				</div>";
+		
+				</div></center>";
 
 		for($i=0; $i<sizeof($array_itens); $i++){
 			echo $array_itens[$i];
@@ -193,5 +196,18 @@ include 'header.php';
 	}
 
 ?>
+
+<?php
+	
+	if(isset($_GET['titulo'])||isset($_GET['mensagem'])||isset($_GET['class'])){
+		echo '<br><div class="container" style="width:500px">
+			<div class="alert '.$_GET['class'].' alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>'.$_GET['titulo'].'</strong><br>
+			'.$_GET['mensagem'].'
+			</div>
+		</div>';
+	}
+	?>
 
 <?php include 'footer.php';?>
